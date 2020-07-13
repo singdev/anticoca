@@ -78,7 +78,7 @@ async function postQuiz() {
         const date = new Date().toDateString();
         quiz.push({ question, checked, date });
     })
-    const res = await fetch("http://localhost:3000/quiz", {
+    const res = await fetch("https://service.anticoca.com/quiz", {
         method: 'post',
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ version, quiz })

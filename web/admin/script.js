@@ -9,7 +9,7 @@ window.addEventListener('load', async () => {
 })
 
 async function fetchQuiz() {
-    const res = await fetch("http://localhost:3000/quiz");
+    const res = await fetch("https://service.anticoca.com/quiz");
     if (res.status == 200) {
         const d = await res.json();
         const a = [];
