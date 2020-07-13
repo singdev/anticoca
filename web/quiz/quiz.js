@@ -68,13 +68,15 @@ async function postQuiz() {
         const formGroups = q.querySelectorAll('.form-group');
         let checked = [];
         formGroups.forEach(fg => {
-            if (fg.querySelector('input').checked) {
+            if (fg.querySelector('input').type == 'text') {
+                checked.push(fg.querySelector('label').innerHTML + ": " + fg.querySelector('input').value)
+            }
+            else if (fg.querySelector('input').checked) {
                 checked.push(fg.querySelector('label').innerHTML);
             }
         })
         quiz.push({ question, checked });
     })
-    console.log(quiz);
     const res = await fetch("http://localhost:3000/quiz", {
         method: 'post',
         headers: { "content-type": "application/json" },

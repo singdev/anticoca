@@ -93,6 +93,14 @@ button:hover {
   text-align: justify;
 }
 
+.form-group input[type="text"]{
+    padding: 4px 16px;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    color: dodgerblue;
+    font-weight: bold;
+}
+
 @media screen and (max-width: 900px){
     .question h1 {
         padding: 4px;
