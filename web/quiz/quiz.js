@@ -75,7 +75,8 @@ async function postQuiz() {
                 checked.push(fg.querySelector('label').innerHTML);
             }
         })
-        quiz.push({ question, checked });
+        const date = new Date().toDateString();
+        quiz.push({ question, checked, date });
     })
     const res = await fetch("http://localhost:3000/quiz", {
         method: 'post',
