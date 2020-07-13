@@ -3,27 +3,39 @@ let _quiz = [];
 window.addEventListener('load', async () => {
     _quiz = await fetchQuiz();
     console.log(_quiz);
-    displayQuiz('.quiz_a', _quiz.a);
-    displayQuiz('.quiz_b', _quiz.b);
-    document.querySelector('.participant').innerHTML = (_quiz.a.length + _quiz.b.length) + " Participants";
+    if(_quiz.a){
+      displayQuiz('.quiz_a', _quiz.a);
+    }
+    if(_quiz.b){
+      displayQuiz('.quiz_b', _quiz.b);
+    }
+    const l1 = _quiz.a ? _quiz.a.length : 0;
+    const l2 = _quiz.b ? _quiz.b.length : 0;
+    document.querySelector('.participant').innerHTML = (l1 + l2) + " Participants";
 })
+
+function loadQuiz(d){
+  let a = [];
+  JSON.parse(d).forEach(e => {
+            try {
+                a.push(JSON.parse(e));
+            } catch (err) { }
+  })
+  return a;
+}
 
 async function fetchQuiz() {
     const res = await fetch("https://service.anticoca.com/quiz");
     if (res.status == 200) {
         const d = await res.json();
-        const a = [];
-        JSON.parse(d.a).forEach(e => {
-            try {
-                a.push(JSON.parse(e));
-            } catch (err) { }
-        })
-        const b = [];
-        JSON.parse(d.b).forEach(e => {
-            try {
-                b.push(JSON.parse(e));
-            } catch (err) { }
-        })
+        let a = null;
+        let b = null;
+        if(d.a){
+          a = loadQuiz(d.a);
+        }
+        if(d.b){
+          b = loadQuiz(d.b);
+        }
         return { a, b };
     }
     return null;
