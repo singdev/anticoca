@@ -3,10 +3,13 @@ const redis = require('redis');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const client = redis.createClient();
+const HOST = process.env.HOST || 'localhost';
+
+const client = redis.createClient({ host: HOST });
 
 const app = express();
-const PORT = 3000;
+
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
