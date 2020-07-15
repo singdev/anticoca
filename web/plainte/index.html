@@ -41,7 +41,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="file" id="identite" name="identite">
+                        <input type="file" id="identite" onchange="loadIdentiteFile(this)" name="identite">
                         <label for="identite">Pièce d'identification (Exemple: CN, Passeport, CNAMGS, ...)</label>
                     </div>
                     
@@ -57,7 +57,7 @@
                     </div>
 
                     <p>Ajoutez en pièce jointes des fichiers pouvant appuyer votre requête: Documents, audios, vidéos, ...</p>
-                    <button class="add-att">Ajouter un éléments</button>
+                    <button class="add-att" onclick="addDocument()">Ajouter un éléments</button>
                     <div class="attachments">
                     </div>
 
