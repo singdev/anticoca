@@ -1,70 +1,63 @@
 const express = require('express');
-const redis = require('redis');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const HOST = process.env.HOST || 'localhost';
+mongoose.connect('mongodb://' + HOST + ':27017/anticoca', { useNewUrlParser: true, useUnifiedTopology: true });
+const QuizModel = mongoose.model('Quiz', mongoose.Schema({
+    version: { type: String, enum: ["a", "b"] },
+    quiz: { type: String },
+    date: { type: Date, default: Date.now() }
 
-const client = redis.createClient({ host: HOST });
+}));
+const PlainteModel = mongoose.model('Plaintes', mongoose.Schema({
+    nom: String,
+    tel: String,
+    identite: String,
+    details: String,
+    attachement: String
+}));
 
 const app = express();
-
-const PORT = process.env.PORT || 3000;
-
 app.use(cors());
 app.use(bodyParser.json());
 
 app.post('/quiz', async (req, res) => {
-    const json = JSON.stringify(req.body.quiz);
-    let version = 'b';
-    if (req.body.version == 'a') {
-        version = 'a';
-    }
-    let str = await getValue(version);
-    if (!str) {
-        str = '[]';
-    }
-    let array = JSON.parse(str);
     try {
-        array.push(json);
-    } catch(err){
-        array = [];
-        array.push(json);
+        console.log(req.body);
+        const quiz = JSON.stringify(req.body.quiz);
+        let version = req.body.version;
+        let date = new Date();
+        const plainte = new QuizModel({ quiz, version, date });
+        const p = await plainte.save();
+        res.send(p);
+    } catch (err) {
+        console.log(err);
+        res.sendStatus(500);
     }
-    let result = await setValue(version, JSON.stringify(array));
-    res.send(result);
+
 })
 
 app.get('/quiz', async (req, res) => {
-    const a = await getValue('a');
-    const b = await getValue('b');
-    res.send({ a, b });
+    try {
+        const entryA = await QuizModel.find({ version: "a" });
+        const entryB = await QuizModel.find({ version: "b" });
+        const a = [];
+        entryA.forEach(ea => {
+            a.push(ea.quiz);
+        });
+        const b = [];
+        entryB.forEach(eb => {
+            b.push(eb.quiz);
+        });
+        res.send({ a, b })
+    } catch (err) {
+        console.log(err);
+    }
 })
 
-function getValue(key) {
-    return new Promise((resolve, reject) => {
-        client.get(key, (err, reply) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(reply);
-            }
-        });
-    });
-}
-
-function setValue(key, value) {
-    return new Promise((resolve, reject) => {
-        client.set(key, value, (err, reply) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(reply);
-            }
-        });
-    });
-}
-
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log("Listen at port " + PORT);
 })

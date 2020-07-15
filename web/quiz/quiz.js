@@ -1,6 +1,9 @@
 let _questions = [];
 let _currentQuestion = 0;
 
+//const url = "https://service.anticoca.com/";
+const url = "http://127.0.0.1:3000";
+
 window.addEventListener('load', () => {
     _questions = getAllQuestions();
     showCurrentQuestion();
@@ -78,7 +81,7 @@ async function postQuiz() {
         const date = new Date().toDateString();
         quiz.push({ question, checked, date });
     })
-    const res = await fetch("https://service.anticoca.com/quiz", {
+    const res = await fetch(url+"/quiz", {
         method: 'post',
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ version, quiz })

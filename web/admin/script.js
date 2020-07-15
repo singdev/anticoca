@@ -1,8 +1,9 @@
 let _quiz = [];
+//const url = "https://service.anticoca.com/";
+const url = "http://127.0.0.1:3000";
 
 window.addEventListener('load', async () => {
     _quiz = await fetchQuiz();
-    console.log(_quiz);
     if(_quiz.a){
       displayQuiz('.quiz_a', _quiz.a);
     }
@@ -14,28 +15,20 @@ window.addEventListener('load', async () => {
     document.querySelector('.participant').innerHTML = (l1 + l2) + " Participants";
 })
 
-function loadQuiz(d){
-  let a = [];
-  JSON.parse(d).forEach(e => {
-            try {
-                a.push(JSON.parse(e));
-            } catch (err) { }
-  })
-  return a;
-}
 
 async function fetchQuiz() {
-    const res = await fetch("https://service.anticoca.com/quiz");
+    const res = await fetch(url+"/quiz");
     if (res.status == 200) {
-        const d = await res.json();
-        let a = null;
-        let b = null;
-        if(d.a){
-          a = loadQuiz(d.a);
-        }
-        if(d.b){
-          b = loadQuiz(d.b);
-        }
+        const data = await res.json();
+        console.log(data);
+        const a = [];
+        data.a.forEach(da => {
+          a.push(JSON.parse(da));
+        })
+        const b = [];
+        data.b.forEach(db => {
+          b.push(JSON.parse(db));
+        })
         return { a, b };
     }
     return null;
