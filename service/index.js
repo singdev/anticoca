@@ -38,7 +38,6 @@ app.use(bodyParser.json({limit: '50mb'}));
 
 app.post('/quiz', async (req, res) => {
     try {
-        console.log(req.body);
         const quiz = JSON.stringify(req.body.quiz);
         let version = req.body.version;
         let date = new Date();
@@ -72,8 +71,6 @@ app.get('/quiz', async (req, res) => {
 
 app.post('/plainte', cpUpload, async (req, res, next) => {
     try {
-        console.log(req.body)
-        console.log(req.files);
         if (req.files['identite']) {
             const f = req.files['identite'][0];
             req.body.identite = { filename: f.filename, mimetype: f.mimetype };
