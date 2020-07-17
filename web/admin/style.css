@@ -16,6 +16,8 @@ main {
 .stat-btn {
     padding: 8px;
     color: dodgerblue;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .chart-ctn {

@@ -19,13 +19,15 @@ function calculateForPropos(props, question, quizArray) {
         let count = 0;
         quizArray.forEach(userResponse => {
             let currentQuestion = userResponse.find(ur => ur.question.replace(/ /g, "").toLowerCase() == question.replace(/ /g, "").toLowerCase());
-            currentQuestion.checked.forEach(checked => {
-                const a = checked.replace(/ /g, "").toLowerCase();
-                const b = prop.innerHTML.replace(/ /g, "").toLowerCase();
-                if (a == b) {
-                    count++;
-                }
-            })
+            if(currentQuestion){
+                currentQuestion.checked.forEach(checked => {
+                    const a = checked.replace(/ /g, "").toLowerCase();
+                    const b = prop.innerHTML.replace(/ /g, "").toLowerCase();
+                    if (a == b) {
+                        count++;
+                    }
+                })
+            }
         });
         propStatArray.push({ prop: prop.innerHTML, count });
     });
