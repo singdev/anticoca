@@ -1,7 +1,7 @@
 let _questions = [];
 let _currentQuestion = 0;
 
-const url = "https://service.anticoca.com/";
+const url = "https://service.anticoca.com";
 //const url = "http://127.0.0.1:3000";
 
 window.addEventListener('load', () => {
@@ -60,9 +60,9 @@ async function finish() {
 async function postQuiz() {
     const type = document.querySelector('.title').innerHTML;
     let version = null;
-    if (type.includes('Quiz A')) {
+    if (type.includes('A')) {
         version = 'a';
-    } else if (type.includes('Quiz B')) {
+    } else if (type.includes('B')) {
         version = 'b';
     }
     let quiz = [];

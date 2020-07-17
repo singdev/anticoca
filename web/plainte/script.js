@@ -4,7 +4,7 @@ let currentIndex = 0;
 let identite = null;
 const documents = [];
 
-const url = "https://service.anticoca.com/";
+const url = "https://service.anticoca.com";
 //const url = "http://127.0.0.1:3000";
 
 window.addEventListener('load', () => {
