@@ -6,7 +6,7 @@ const multer = require('multer');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, '/tmp/uploads')
+        cb(null, __dirname + '/uploads')
     },
     filename: function (req, file, cb) {
         cb(null, file.fieldname + '-' + Date.now())
@@ -98,7 +98,7 @@ app.get("/plainte", async (req, res, next) => {
 
 app.get('/plainte/file/:filename', async (req, res, next) => {
     const filename = req.params.filename;
-    res.download('/tmp/uploads/' + filename);
+    res.download(__dirname + '/uploads/' + filename);
 })
 
 const PORT = process.env.PORT || 3000;
