@@ -6,7 +6,7 @@ main {
 }
 
 .summury {
-    padding: 20px;
+    padding: 16px;
     border-left: 2px solid #cccccc;
     position: sticky;
     top: 0;
@@ -75,6 +75,8 @@ img {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .documents > div {
@@ -89,5 +91,9 @@ img {
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+}
+
+.id-container > * {
+    padding-right: 16px;
 }
