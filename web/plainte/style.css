@@ -112,6 +112,17 @@ em {
     display: block;
 }
 
+.waiting {
+  width: 100%;
+  text-align: center;
+  padding: 16px;
+  color: blue;
+}
+
+.waiting span {
+  padding-left: 8px;
+}
+
 @media screen and (max-width: 800px){
 
     .form-group {

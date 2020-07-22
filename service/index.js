@@ -34,7 +34,7 @@ const PlainteModel = mongoose.model('Plaintes', mongoose.Schema({
 
 const app = express();
 app.use(cors());
-app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.json({limit: '200mb'}));
 
 app.post('/quiz', async (req, res) => {
     try {

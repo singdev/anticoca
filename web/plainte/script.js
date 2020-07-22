@@ -24,9 +24,11 @@ function displayCurrentIndex() {
     _content[currentIndex].classList.add("current-content");
 }
 
-function next() {
+async function next() {
     if(currentIndex == 1){
-        postPlainte();
+       document.querySelector('.waiting').innerHTML = '<i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i>  <span>Veuilez patienter...</span>';
+       await  postPlainte();
+       document.querySelector('.waiting').innerHTML = "";
     }
     currentIndex++;
     if (currentIndex >= _content.length) {
