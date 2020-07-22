@@ -6,18 +6,18 @@ window.addEventListener('load', async () => {
     _quiz = await fetchQuiz();
     if (_quiz.a) {
         displayQuiz('.quiz_a', _quiz.a);
-        getStatisitque(template_a, _quiz.a, '.stat_a');
+        getStatisitque(template_a, _quiz.a, '.stat_a', '.stat_tab_a');
     }
     if (_quiz.b) {
         displayQuiz('.quiz_b', _quiz.b);
-        getStatisitque(template_b, _quiz.b, '.stat_b');
+        getStatisitque(template_b, _quiz.b, '.stat_b', '.stat_tab_b');
     }
     const l1 = _quiz.a ? _quiz.a.length : 0;
     const l2 = _quiz.b ? _quiz.b.length : 0;
     document.querySelector('.participant').innerHTML = (l1 + l2) + " Participants";
 })
 
-function getStatisitque(template, quiz, button_class) {
+function getStatisitque(template, quiz, button_class, button_tab_class) {
     getAllQuizQuestion(template);
     let statistics = [];
     for (let i = 0; i < _questions.length; i++) {
@@ -38,6 +38,49 @@ function getStatisitque(template, quiz, button_class) {
             displayStatistics(statistics);
         });
     });
+
+    document.querySelector(button_tab_class).addEventListener('click', () => {
+        displayStatTab(statistics);
+    });
+}
+
+function displayStatTab(statistics) {
+    const section = document.querySelector('.display');
+    while (section.firstChild) {
+        section.removeChild(section.firstChild);
+    }
+    statistics.forEach(stat => {
+        displayTab(stat, section);
+    })
+}
+
+function displayTab(stat, section){
+    const container = document.createElement('div');
+    container.classList.add('stat-tab-ctn');
+    const title = document.createElement('h2');
+    title.innerHTML = stat.question;
+    container.appendChild(title);
+
+    const table = document.createElement('table');
+    let total = 0;
+    stat.propStatArray.forEach(a => {
+        total += a.count;
+    })
+    stat.propStatArray.forEach(ps => {
+
+        //array.push([ps.prop, ps.count])
+        const tr = document.createElement('tr');
+        const tdText = document.createElement('td');
+        tdText.innerHTML = ps.prop;
+        const tdPercent = document.createElement('td');
+        tdPercent.classList.add('percent');
+        tdPercent.innerHTML = Math.floor(ps.count / total * 100) + "%";
+        tr.appendChild(tdText);
+        tr.appendChild(tdPercent);
+        table.appendChild(tr);
+    })
+    container.appendChild(table);
+    section.appendChild(container);
 }
 
 function displayStatistics(statistics) {
@@ -50,6 +93,7 @@ function displayStatistics(statistics) {
     section.appendChild(chartctn);
     statistics.forEach(stat => {
         displayChart(stat, chartctn);
+
     })
 }
 
