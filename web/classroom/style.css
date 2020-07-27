@@ -1,0 +1,66 @@
+h1 {
+    text-align: center;
+    font-weight: 100;
+    font-size: 4.0em;
+    padding: 20px;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modules {
+    width: 80%;
+    padding-top: 20px;
+    padding-bottom: 16px;
+}
+
+.module {
+    margin-bottom: 40px;
+}
+
+.module h2 {
+    font-size: 16px;
+    color: dodgerblue;
+}
+
+.module strong {
+    font-weight: 100;
+    font-size: 24px;
+    text-transform: uppercase;
+    padding-right: 8px;
+}
+
+.module ul {
+    list-style-type: none;
+}
+
+.module ul a {
+    text-decoration: none;
+    color: #777777;
+}
+
+.module li {
+    padding: 16px;
+    border-bottom: 1px solid #cccccc;
+}
+
+i {
+    color: dodgerblue;
+    padding-right: 8px;
+}
+
+@media screen and (max-width: 800px){
+
+    main {
+        padding: 16px;
+    }
+
+    .modules {
+        width: 95%;
+    }
+}
