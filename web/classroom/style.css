@@ -26,6 +26,12 @@ main {
 .module h2 {
     font-size: 16px;
     color: dodgerblue;
+    display: flex;
+    flex-direction: column;
+}
+
+.module h2:hover {
+    cursor: pointer;
 }
 
 .module strong {
@@ -37,6 +43,9 @@ main {
 
 .module ul {
     list-style-type: none;
+    height: 0px;
+    overflow: hidden;
+    transition: 0.4s;
 }
 
 .module ul a {
@@ -52,6 +61,10 @@ main {
 i {
     color: dodgerblue;
     padding-right: 8px;
+}
+
+.module ul.show {
+    height: 280px;
 }
 
 @media screen and (max-width: 800px){
