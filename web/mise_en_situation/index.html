@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../../header.css">
     <link href="https://fonts.googleapis.com/css2?family=Modak&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <title>Mise en situation - Anti corruptuon</title>
 </head>
 <body>
@@ -18,8 +19,47 @@
     </header>
 
     <main>
-        <p style="margin-top: 80px; padding: 20px; text-align: center;">Le contenu pour cette rubrique est en cours de conception !</p>
+
+        <div class="mes">
+            <img src="../../img/mes1.jpg" alt="Mise en situation">
+            <div class="mes-actions">
+                <button class="btn-red" onclick="verify(true, true)">Corruption</button>
+                <button class="btn-green" onclick="verify(false, true)">Pas Corruption</button>
+            </div>
+        </div>
+
+        <div class="mes">
+            <img src="../../img/mes2.jpg" alt="Mise en situation">
+            <div class="mes-actions">
+                <button class="btn-red" onclick="verify(true, true)">Corruption</button>
+                <button class="btn-green" onclick="verify(false, true)">Pas Corruption</button>
+            </div>
+        </div>
+
+        <div class="mes">
+            <img src="../../img/mes3.jpg" alt="Mise en situation">
+            <div class="mes-actions">
+                <button class="btn-red" onclick="verify(true, true)">Corruption</button>
+                <button class="btn-green" onclick="verify(false, true)">Pas Corruption</button>
+            </div>
+        </div>
+
+        <div class="mes-modal mes-good">
+            <div class="mes-modal-content">
+                <h1 class="message">Bonne réponse</h1>
+                <h1><i class="fas fa-check-circle"></i></h1>
+            </div>
+        </div>
+
+        <div class="mes-modal mes-bad">
+            <div class="mes-modal-content">
+                <h1 class="message">Mauvaise réponse</h1>
+                <h1><i class="far fa-times-circle"></i></h1>
+            </div>
+        </div>
 
     </main>
+
+    <script src="./script.js"></script>
 </body>
 </html>

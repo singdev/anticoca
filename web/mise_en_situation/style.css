@@ -1,0 +1,82 @@
+.mes {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.mes-show {
+    display: flex;
+}
+
+.mes img {
+    height: 60vh;
+    width: auto;
+}
+
+.mes-actions {
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+button {
+    margin: 8px;
+    padding: 8px 32px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    width: 200px;
+    transition: 0.4s;
+}
+
+button:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.btn-green {
+    background-color: green;
+}
+
+.btn-red {
+    background-color: red;
+}
+
+.mes-modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 1000000;
+    display: none;
+}
+
+.mes-modal-content {
+    background-color: rgb(49, 163, 49);
+    color: white;
+    text-align: center;
+    padding: 40px;
+    box-shadow: 0.5px -1px 10px #000000;
+}
+
+.mes-bad .mes-modal-content {
+    background-color: tomato;
+}
+
+@media screen and (max-width: 550px) {
+
+    .mes img {
+        width: 90vw;
+        height: auto;
+    }
+}
