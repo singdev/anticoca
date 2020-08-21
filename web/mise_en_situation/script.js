@@ -1,5 +1,6 @@
 let mes = [];
 let currentMes = 0;
+let score = 0;
 
 window.addEventListener('load', () => {
     mes = document.querySelectorAll('.mes');
@@ -14,6 +15,7 @@ function displayCurrentMes() {
 function verify(response, correct){
     if(response == correct){
         displayCorrect();
+        score++;
     } else {
         displayError();
     }
@@ -46,6 +48,5 @@ function nextMes() {
 }
 
 function displayFinish() {
-    //TODO
-    window.location = "/";
+    window.location = "./finish.html?score=" + score;
 }

@@ -61,6 +61,31 @@ button:hover {
     display: none;
 }
 
+.blue-button {
+    background-color: dodgerblue;
+    color: white;
+    text-decoration: none;
+    padding: 8px 32px;
+}
+
+.finish-main {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.finish-main .score {
+    font-size: 18px;
+    color: dodgerblue;
+}
+
+.finish-main p {
+    padding: 20px;
+}
+
 .mes-modal-content {
     background-color: rgb(49, 163, 49);
     color: white;
