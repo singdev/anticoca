@@ -1,0 +1,89 @@
+
+main {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    margin-top: 80px;
+}
+
+.summury {
+    padding: 20px;
+    border-left: 2px solid #cccccc;
+    position: sticky;
+    top: 0;
+    right: 0;
+}
+
+.stat-btn {
+    padding: 8px;
+    color: dodgerblue;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.chart-ctn {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.percent  {
+    color: dodgerblue;
+    text-align: end;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {background-color: #f2f2f2;}
+
+h1 {
+    font-size: 16px;
+    color: dodgerblue;
+    padding: 16px 0px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: lighter;
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+
+.quiz_a, .quiz_b {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.quiz_a a, .quiz_b a {
+  margin-right: 16px;
+  color: #777777;
+  text-decoration: none;
+}
+
+.quiz_a a:hover, .quiz_b a:hover {
+    text-decoration: underline;
+}
+
+section {
+    padding: 20px;
+}
+
+section > div {
+    padding: 16px;
+}
+
+.value {
+    font-weight: bold;
+    color: dodgerblue;
+}

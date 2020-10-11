@@ -1,0 +1,112 @@
+/*
+ font-family: 'Modak', cursive;
+ font-family: 'Open Sans', sans-serif;
+
+ */
+
+nav {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 32px 16px;
+    box-shadow: 1px 0.5px 5px #000000;
+    width: 300px;
+    border-radius: 8px;
+}
+
+nav a {
+    text-decoration: none;
+    background-color: dodgerblue;
+    color: white;
+    display: inline-block;
+    padding: 12px 32px;
+    margin: 8px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 1px 2px 5px #777777;
+}
+
+nav h3 {
+    padding: 32px 4px;
+    text-align: center;
+    font-weight: lighter;
+    font-size: 24px;
+}
+
+.illustrations {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 20px;
+}
+
+.illustrations h1 {
+    font-size: 32px;
+    font-weight: lighter;
+    padding: 16px;
+}
+
+.illustrations h2 {
+    font-weight: 500;
+    padding-top: 16px;
+    padding-left: 16px;
+}
+
+main {
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://images.unsplash.com/photo-1591550057564-f457f87fbbea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);
+    background-size:     cover;                   
+    background-repeat:   no-repeat;
+    background-position: center center;   
+    justify-content: space-evenly;
+}
+
+footer {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 16px;
+}
+
+footer .copyright {
+    font-size: 12px;
+}
+
+footer .copyright a {
+    color: white;
+    font-style: italic;
+}
+
+@media screen and (max-width: 900px){
+    main {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 90vh;
+        height: fit-content;
+        padding: 4px;
+    }
+
+    .illustrations {
+        width: 100%;
+    }
+
+    .illustrations h1 {
+        text-align: center;
+        font-size: 24px;
+    }
+
+    .illustrations h2 {
+        text-align: center;
+        font-size: 16px;
+    }
+
+    main {
+        overflow-x: hidden;
+    }
+}

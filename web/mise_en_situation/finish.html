@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../header.css">
+    <link href="https://fonts.googleapis.com/css2?family=Modak&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Mise en situation - Anti corruptuon</title>
+</head>
+<body>
+    <header>
+        <img src="../../img/logo.png" class="logo" alt="Logo">
+        <div class="header-social">
+            <a href="#"><i class="fab fa-facebook-square"></i></a>
+            <a href="#"><i class="fab fa-twitter-square"></i></a>
+        </div>
+    </header>
+
+    <main class="finish-main">
+        
+        <p class="score"></p>
+
+        <p>Découvrez l'ensemble des formations dans notre espace classroom</p>
+
+        <a  href="../classroom/index.html" class="blue-button">Visiter la classroom</a>
+
+    </main>
+
+    <script>
+        console.log(window.location.toString());
+        const score = window.location.toString().split('?score=')[1];
+        document.querySelector('.score').innerHTML = "Votre score est de: " + score + "/3";
+    </script>
+
+</body>
+</html>

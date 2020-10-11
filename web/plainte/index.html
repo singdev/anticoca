@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../header.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Modak&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Plainte - Anti corruption</title>
+</head>
+
+<body>
+    <header>
+        <a href="../../index.html"><img src="../../img/logo.png" class="logo" alt="Logo"></a>
+        <div class="header-social">
+            <a href="#"><i class="fab fa-facebook-square"></i></a>
+            <a href="#"><i class="fab fa-twitter-square"></i></a>
+        </div>
+    </header>
+
+    <main>
+        <h2 class="suivi-title">Suivre une plainte</h2>
+        <div class="suivi">
+            <input type="text" name="numero" placeholder="Numéro de la plainte">
+            <button onclick="displayStep()">Suivre</button>
+            <p class="etape"></p>
+        </div>
+        <h1 style="font-size: 16px;">Vous avez été témoin d'un acte de corruption? Vous êtes encouragé à partager votre témoignage avec les membres du Ministère de la Promotion de la bonne gouvernance, de la Lutte contre la Corruption et l'Evaluation des Politiques Publiques.</h1>
+
+        <div class="steps">
+
+            <div class="step current-step"><span>1</span><strong>Anonymat</strong></div>
+            <div class="step current-step"><span>2</span><strong>Identification</strong></div>
+            <div class="step"><span>3</span><strong>Charges</strong></div>
+            <div class="step"><span>4</span><strong>Suivi</strong></div>
+        </div>
+        <p class="waiting"></p>
+        <div class="step-content">
+            <div class="content type_plainte">
+                <p style="text-align: center;">Voulez vous rester anonyme? </p>
+                <div class="form-container">
+
+                    <div class="form-group">
+                        <button onclick="next('jump')">Oui</button>
+                    </div>
+
+                    <div class="form-group">
+                        <button onclick="next()">Non</button>
+                    </div>
+                </div>
+            </div>
+            <div class="content identification current-content">
+                <div class="form-container">
+                    <div class="form-group">
+                        <input type="text" id="nom" name="nom">
+                        <label for="nom">Nom</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="prenom" name="prenom">
+                        <label for="prenom">Prénom</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" id="email" name="email">
+                        <label for="email">Adresse email</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="tel" name="tel" onkeyup="addSpaceOnNumber(this, this.value)">
+                        <label for="tel">Numéro de Téléphone</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="file" id="identite" accept="application/pdf,image/*" onchange="loadIdentiteFile(this)" name="identite">
+                        <label for="identite">Pièce d'identification (Exemple: CN, Passeport, CNAMGS, ...)</label>
+                    </div>
+
+                    <button onclick="next()">Envoyer</button>
+                </div>
+            </div>
+
+            <div class="content charge">
+                <div class="form-container">
+
+                    <div class="form-group">
+                        <select id="ville" name="ville">
+                        </select>
+                        <label for="ville">Ville</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="administration" name="administration">
+                        <label for="administration">Administration concerné (Obligatoire)</label>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea name="details" id="details" cols="30" rows="10"></textarea>
+                        <label for="details">Donnez des détails sur la situation</label>
+                    </div>
+
+                    <p>Ajoutez en pièce jointes des fichiers pouvant appuyer votre requête: Documents, audios, vidéos, ...
+                    </p>
+                    <button class="add-att" onclick="addDocument()">Ajouter un éléments</button>
+                    <div class="attachments">
+                    </div>
+
+                    <div>
+                        <button onclick="next()">Terminé</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content interessement">
+                <div class="form-container">
+                    <p style="padding: 8px; text-align: center; color: dodgerblue; font-weight: bold;">Les informations ont bien été transmis aux autorités. Merci pour votre aide dans la lutte contre la corruption
+                    </p>
+                    <p style="margin-top: 20px;">Vous pourrez suivre votre commande en utilisant le numéro:</p>
+                    <p style="color: red; padding-top: 20px; font-weight: bold; font-size: 14px;">il faut bien garder ce numéro pour pouvoir suivre la plainte</p>
+                    <p style="margin-bottom: 20px;" class="numero"></p>
+                    <button onclick="window.location = '../../'">revenir à l'accueil</button>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <script src="./input.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

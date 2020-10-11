@@ -1,0 +1,110 @@
+main {
+    padding-top: 20px;
+    padding: 16px;
+}
+
+h1 {
+    color: dodgerblue;
+    text-align: center;
+    font-weight: lighter;
+}
+
+.question {
+    display: none;
+}
+
+.current-question {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.current-question h1 {
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: lighter;
+    color: black;
+}
+
+.form-group {
+    padding: 8px;
+}
+
+.form-group:hover, .form-group label:hover {
+    cursor: pointer;
+    color: dodgerblue;
+}
+
+.form-group input:checked+label {
+    color: dodgerblue;
+    font-weight: bold;
+}
+
+button {
+    border: none;
+    background-color: dodgerblue;
+    color: white;
+    padding: 8px 32px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+button:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.actions {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.quiz {
+    margin-bottom: 80px;
+}
+
+.propositions {
+    display: none;
+}
+
+.show-propositions {
+    display: flex;
+    flex-direction: column;
+}
+
+.propositions {
+    padding: 20px;
+}
+
+.propositions h3 {
+    padding-top: 20px;
+}
+
+.propositions h2 {
+  font-size: 18px;
+  color: dodgerblue;
+  text-align: justify;
+}
+
+.form-group input[type="text"]{
+    padding: 4px 16px;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    color: dodgerblue;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 900px){
+    .question h1 {
+        padding: 4px;
+        font-size: 18px;
+        margin-bottom: 32px;
+    }
+}
