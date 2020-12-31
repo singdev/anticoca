@@ -5,8 +5,8 @@ let identite = null;
 let anonyme = false;
 const documents = [];
 
-//const url = "https://service.anticoca.com";
-const url = "http://127.0.0.1:3000";
+const url = "https://admin.anticoca.com";
+//const url = "http://127.0.0.1:3000";
 
 const villes = [
     "Cocobeach",
@@ -52,6 +52,14 @@ window.addEventListener('load', () => {
     laodVilles();
 })
 
+function showModal(){
+    document.querySelector('.modal').classList.add("show-modal");
+}
+
+function hideModal(){
+    document.querySelector('.modal').classList.remove("show-modal");
+}
+
 function laodVilles() {
     const select = document.querySelector('select[name="ville"]');
 
@@ -85,16 +93,22 @@ async function next(value) {
         if (document.querySelector('input[name="email"]').value != "" &&
             !validateEmail(document.querySelector('input[name="email"]').value)) {
             warning = true;
-            document.querySelector('.waiting').innerHTML = "L'adresse email est incorrecte";
+            alert("L'adresse email est incorrecte");
         }
     }
     if (currentIndex == 2) {
         if (document.querySelector('input[name="administration"]').value == "") {
-            document.querySelector('.waiting').innerHTML = "L'administration concernée est obligatoire";
+            alert("L'administration concernée est obligatoire");
             warning = true;
         } else {
+            showModal();
             document.querySelector('.waiting').innerHTML = '<i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i>  <span>Veuilez patienter...</span>';
-            await postPlainte();
+            try {
+                await postPlainte();
+            } catch(err){
+                console.log(err);
+            }
+            hideModal();
             document.querySelector('.waiting').innerHTML = "";
         }
     }
@@ -158,7 +172,7 @@ async function postPlainte() {
         formData.append('documents', d);
     })
 
-    await publish(formData, document.querySelector('.waiting'));
+    const result = await publish(formData, document.querySelector('.waiting'));
 }
 
 /**
@@ -186,7 +200,7 @@ async function publish(data, progressElement) {
         request.upload.addEventListener('progress', (e) => {
             var percent_complete = (e.loaded / e.total) * 100;
             // Percentage of upload completed
-            progressElement.innerHTML = Math.round(percent_complete) + "% Envoyé...";
+            progressElement.innerHTML = Math.round(percent_complete) + "%";
         });
 
         // If server is sending a JSON response then set JSON response type
