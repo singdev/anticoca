@@ -5,7 +5,7 @@ let identite = null;
 let anonyme = false;
 const documents = [];
 
-const url = "https://admin.anticoca.com";
+const url = "https://admin.stopcorruption.ga";
 //const url = "http://127.0.0.1:3000";
 
 const villes = [
