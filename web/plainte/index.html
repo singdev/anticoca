@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../header.css">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Modak&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Plainte - Anti corruption</title>
 </head>
@@ -77,9 +79,9 @@
                         <label for="identite">Pièce d'identification (Exemple: CN, Passeport, CNAMGS, ...)</label>
                     </div>
 
-                    <button onclick="next()">Envoyer</button>
                 </div>
-            </div>
+                <button onclick="next()">Envoyer</button>
+              </div>
 
             <div class="content charge">
                 <div class="form-container">
@@ -99,24 +101,24 @@
                         <textarea name="details" id="details" cols="30" rows="10"></textarea>
                         <label for="details">Donnez des détails sur la situation</label>
                     </div>
-
-                    <p>Ajoutez en pièce jointes des fichiers pouvant appuyer votre requête: Documents, audios, vidéos, ...
-                    </p>
-                    <button class="add-att" onclick="addDocument()">Ajouter un éléments</button>
-                    <div class="attachments">
+                    <div class="form-group">
+                      <p>Ajoutez en pièce jointes des fichiers pouvant appuyer votre requête: Documents, audios, vidéos, ...
+                      </p>
+                      <button class="add-att" onclick="addDocument()">Ajouter un éléments</button>
+                      <div class="attachments">
+                      </div>
                     </div>
-
-                    <div>
-                        <button onclick="next()">Terminé</button>
-                    </div>
+                </div>
+                <div>
+                  <button onclick="next()">Terminé</button>
                 </div>
             </div>
 
             <div class="content interessement">
-                <div class="form-container">
+                <div>
                     <p style="padding: 8px; text-align: center; color: dodgerblue; font-weight: bold;">Les informations ont bien été transmis aux autorités. Merci pour votre aide dans la lutte contre la corruption
                     </p>
-                    <p style="margin-top: 20px;">Vous pourrez suivre votre commande en utilisant le numéro:</p>
+                    <p style="margin-top: 20px;">Vous pourrez suivre votre plainte en utilisant le numéro:</p>
                     <p style="color: red; padding-top: 20px; font-weight: bold; font-size: 14px;">il faut bien garder ce numéro pour pouvoir suivre la plainte</p>
                     <p style="margin-bottom: 20px;" class="numero"></p>
                     <button onclick="window.location = '../../'">revenir à l'accueil</button>
