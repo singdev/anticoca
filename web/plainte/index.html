@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Denonciation - Anti corruption</title>
 </head>
 
@@ -115,12 +115,18 @@
             </div>
 
             <div class="content interessement">
-                <div>
+                <div class="denonciation-result-container">
                     <p style="padding: 8px; text-align: center; color: dodgerblue; font-weight: bold;">Les informations ont bien été transmis aux autorités. Merci pour votre aide dans la lutte contre la corruption
                     </p>
                     <p style="margin-top: 20px;">Vous pourrez suivre votre denonciation en utilisant le numéro:</p>
-                    <p style="color: red; padding-top: 20px; font-weight: bold; font-size: 14px;">il faut bien garder ce numéro pour pouvoir suivre la denonciation</p>
-                    <p style="margin-bottom: 20px;" class="numero"></p>
+                    
+                    <div class="numero-container">
+                      <p class="numero">1234567891012</p>
+                      <button onclick="printPage()"><i class="fas fa-print"></i></button> 
+                    </div>
+                    
+                    <p style="color: red; padding-top: 20px; font-size: 12px;" class="warning">Il faut bien garder ce numéro pour pouvoir suivre la denonciation</p>
+
                     <button onclick="window.location = '../../'">revenir à l'accueil</button>
                 </div>
 

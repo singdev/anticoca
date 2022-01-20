@@ -212,6 +212,10 @@ async function publish(data, progressElement) {
     })
 }
 
+function printPage(){
+  window.print();
+}
+
 async function displayStep() {
     const numero = document.querySelector("input[name='numero']").value;
 

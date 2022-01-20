@@ -206,6 +206,42 @@ h2 {
   padding: 1rem;
 }
 
+.denonciation-result-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: flex-start;
+}
+
+.denonciation-result-container .warning {
+  margin-bottom: 2rem;
+}
+
+.denonciation-result-container .numero-container {
+  display: flex;
+  border: 1px dotted #777;
+  background-color: #efefef;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 2rem;
+  border-radius: 4px;
+  margin-top: 2rem;
+}
+
+.denonciation-result-container .numero-container button {
+  margin: 0;
+  background-color: transparent;
+  color: dodgerblue;
+}
+
+.denonciation-result-container .numero-container .numero {
+  background-color: #fafafa;
+  font-size: 16px;
+  color: #777;
+  padding: 0.5rem;
+}
+
 @media screen and (max-width: 800px) {
   .form-group {
     width: 100%;
